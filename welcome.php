@@ -23,6 +23,16 @@ tr:nth-child(even) {
         <a href=/index.php>Logout</a>
         
     </h2>
+
+<h2>Book Table</h2>
+
+<table>
+  <tr>
+    <th>Book Id</th>
+    <th>Book Name</th>
+    <th>Book left</th>
+    <th>Book Issued</th>
+  </tr>
     <?php 
     session_start();
     echo $_SESSION['new'];
@@ -33,6 +43,8 @@ tr:nth-child(even) {
     include('config.php');
     $query="Select * from BookData";
     $result=mysqli_query($con,$query);
+
+
 
 
 
@@ -58,7 +70,7 @@ while($rows=mysqli_fetch_assoc($result))
   </table>
 
 
-<h1> 
+
   
 </body>
 
