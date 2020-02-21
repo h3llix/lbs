@@ -58,7 +58,7 @@ while($rows=mysqli_fetch_assoc($result))
   </table>
 
 
-<h1> 
+
   
 </body>
 
