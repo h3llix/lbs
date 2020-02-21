@@ -1,3 +1,21 @@
+<?php 
+
+include('config.php');
+if(isset($_GET['request'])){
+
+    $clientid = $_SESSION['id'];
+    $bookid = $_GET['bookid'];
+    $query = "INSERT INTO `ClientRequest` (`tokenid`, `bookid`, `clientname`, `status`) VALUES (NULL, '$bookid', '$clientid', '0')";
+    if(mysqli_query($con, $query)){
+        echo "Requested Successfully";
+    }
+}
+
+
+?>
+
+
+
 <html>
 <head>
 <style>
@@ -59,7 +77,8 @@ while($rows=mysqli_fetch_assoc($result))
     <td><?php echo $rows['bookissued']; ?></td>
     <td><?php echo $rows['bookleft']; ?></td>
     <td>
-       <a href="welcome.php?request=1"> Request Checkout</a>
+       <a href="welcome.php?request=1&bookid=<?php echo $rows['bookid']; ?>&bookname=<?php echo $rows['bookname']; ?>"> Request Checkout</a>
+
     </td>
 
   </tr>
