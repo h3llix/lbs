@@ -14,23 +14,8 @@
     include('config.php');
     $query="Select * from BookData";
     $result=mysqli_query($con,$query);
-    while($rows=mysqli_fetch_assoc($result))    
-    {
-        ?>
 
- <tr>
-    <td><?php echo $rows['bookid']; ?></td>
-    <td><?php echo $rows['bookname']; ?></td>
-    <td><?php echo $rows['bookissued']; ?></td>
-    <td><?php echo $rows['bookleft']; ?></td>
-  </tr>
 
-<?php
-}
-?>
-    ?>
-
-<?php
 
 
 while($rows=mysqli_fetch_assoc($result))
