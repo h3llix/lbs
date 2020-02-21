@@ -27,12 +27,19 @@ while($rows=mysqli_fetch_assoc($result))
     <td><?php echo $rows['bookname']; ?></td>
     <td><?php echo $rows['bookissued']; ?></td>
     <td><?php echo $rows['bookleft']; ?></td>
+    <td>
+       <a href="welcome.php?request=1"> Request Checkout</a>
+    </td>
+
   </tr>
 
 <?php
 }
 ?>
   </table>
+
+
+<h1> 
   
 </body>
 
