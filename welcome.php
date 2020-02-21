@@ -48,20 +48,7 @@ while($rows=mysqli_fetch_assoc($result))
 }
 ?>
   </table>
-  <form action="insert.php" method="post">
-    <p>
-        <label >Book Name:</label>
-        <input type="text" name="bookname" id="firstName">
-    </p>
-    <p>
-        <label>Book Issued:</label>
-        <input type="text" name="bookissued" id="lastName">
-    </p>
-    <p>
-        <label >Book Left</label>
-        <input type="text" name="bookleft" id="emailAddress">
-    </p>
-    <input type="submit" value="Submit">
+  
 </body>
 
 
