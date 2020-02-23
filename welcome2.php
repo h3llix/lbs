@@ -1,10 +1,8 @@
-
-
 <?php
 
 include('config.php');
 $query="Select * from BookData";
-$result=mysqli_query($con,$query);
+$result=mysqli_query($con, $query);
  
 ?>
 
@@ -36,6 +34,7 @@ tr:nth-child(even) {
 
 <table>
   <tr>
+  
     <th>Book Id</th>
     <th>Book Name</th>
     <th>Book left</th>
@@ -47,8 +46,7 @@ tr:nth-child(even) {
 <?php
 
 
-while($rows=mysqli_fetch_assoc($result))
-{
+while ($rows=mysqli_fetch_assoc($result)) {
     ?>
 
  <tr>
@@ -61,7 +59,11 @@ while($rows=mysqli_fetch_assoc($result))
 <?php
 }
 ?>
-  </table>
+
+
+
+
+</table>
   <form action="insert.php" method="post">
     <p>
         <label >Book Name:</label>
@@ -77,6 +79,68 @@ while($rows=mysqli_fetch_assoc($result))
     </p>
     <input type="submit" value="Submit">
 
+</form>
+
+
+
+
+<table>
+  <tr>
+  <th>Username</th>
+    <th>Book Id</th>
+    <th>Approved</th>
+    <th>Issued</th>
+    <th>Return Book</th>
+  </tr>
+      <?php
+    
+    include('config.php');
+    
+    $q="SELECT * FROM issue_book ";
+    $result=mysqli_query($con, $q);
+
+while ($rows=mysqli_fetch_assoc($result)) {
+    ?>
+
+ <tr>
+     <td><?php echo $rows['username']; ?></td>
+    <td><?php echo $rows['bookid']; ?></td>
+    <td><?php echo $rows['approve']; ?></td>
+    <td><?php echo $rows['issue']; ?></td>
+    <td><?php echo $rows['returnbook']; ?></td>
+    <td>
+       
+
+    </td>
+
+  </tr>
+
+<?php
+}
+?>
+  </table>
+
+<form method="post" action="update.php" >
+<input type="text" name="bookid1">bookid</input>
+<input type="text" name="username">username</input>
+
+<input type="text" name="approve">yes or no</input>
+<input type="text" name="issue">Issued Date</input>
+<input type="text" name="return">Return Date</input>
+<button type="submit" name="appbook">Approve</button>
+<button type="submit" name="retbook">Return</button>
+</form> 
+
+
+<?php
+if ($_SESSION["username"]) {
+    ?>
+Welcome <?php echo $_SESSION["username"]; ?>. Click here to <a href="logout.php" tite="Logout">Logout.
+<?php
+} else {
+        echo "<h1>Please login first .</h1>";
+    }
+?>
 
 
 
